@@ -1,10 +1,24 @@
-<form>
+<!-- <form #formkey="ngForm" (ngSubmit)="login(formkey)" >
   <h2>Connexion</h2>
   <input [(ngModel)]="email" type="text" id="email"placeholder="Email" name="email" required><br>
-  <input [(ngModel)]="password" type="password" id="password" placeholder="password" name="password" required>
-
+  <input [(ngModel)]="password" type="password" id="password"minlength="8" maxlength="30" placeholder="password" name="password" required>
+@if (formkey.submitted && formkey.controls['password'].invalid) {
+  <div >Min 8 caracteres </div>
+}
   <button type="submit">Se connecter</button>
 
 </form>
 {{email}}
 {{password}}
+{{recap}} -->
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+<form {formGroup}="formkey" (ngSubmit)="valider()">
+ <h2>Connexion</h2>
+  <input formControlName="email" name="email" type="text" id="email"placeholder="Email" name="email" ><br>
+  <input formControlName="password"name="password" type="password" id="password"minlength="8" maxlength="30" placeholder="password" name="password" >
+ <button type="submit">Se connecter</button>
+</form>
+
+
